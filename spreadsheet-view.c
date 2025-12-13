@@ -41,6 +41,7 @@ sheet_get_cell(Sheet* sheet, guint64 row, guint64 col)
   return g_hash_table_lookup(sheet->cells,
                              GUINT_TO_POINTER(cell_key(row, col)));
 }
+
 static void
 spreadsheet_view_init(SpreadsheetView* self)
 {
@@ -89,6 +90,7 @@ draw_cell(SpreadsheetView* view, GtkSnapshot* snapshot, guint64 row,
       g_object_unref(layout);
     }
 }
+
 static void
 spreadsheet_view_snapshot(GtkWidget* widget, GtkSnapshot* snapshot)
 {
@@ -107,6 +109,7 @@ spreadsheet_view_snapshot(GtkWidget* widget, GtkSnapshot* snapshot)
     for (guint c = 0; c < cols; c++)
       draw_cell(view, snapshot, first_row + r, first_col + c);
 }
+
 static void
 on_click(GtkGestureClick* gesture, int n_press, double x, double y,
          gpointer user_data)
